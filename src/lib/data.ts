@@ -47,7 +47,7 @@ export type Depoimento = {
   data: string;
 };
 
-export const WHATSAPP_NUMERO = "5511987654321";
+export const WHATSAPP_NUMERO = "5534987654321";
 
 /** Monta o link do WhatsApp com mensagem pré-preenchida. */
 export const whatsappLink = (mensagem: string) =>
@@ -67,7 +67,7 @@ export const PRODUTOS: Produto[] = [
   {
     id: "sab-2",
     nome: "Morango Orgânico",
-    descricao: "Morangos da serra colhidos na semana, batidos com iogurte artesanal.",
+    descricao: "Morangos do Triângulo Mineiro colhidos na semana, batidos com iogurte artesanal.",
     preco: 16.5,
     precoPromocional: 13.9,
     categoria: "sabores",
@@ -222,7 +222,7 @@ export const PRODUTOS: Produto[] = [
   {
     id: "saz-1",
     nome: "Gelato de Pêssego da Estação",
-    descricao: "Pêssegos maduros de Paranapanema — disponível de setembro a dezembro.",
+    descricao: "Pêssegos maduros do Sul de Minas — disponível de setembro a dezembro.",
     preco: 19.9,
     categoria: "sazonal",
     tag: "Primavera",

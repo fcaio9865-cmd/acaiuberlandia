@@ -12,7 +12,7 @@ export function SiteFooter() {
           <LogoLockup size={44} />
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             Gelato artesanal produzido diariamente em pequenos lotes, com frutas de
-            produtores locais e ingredientes italianos selecionados. Desde 2014 em São Paulo.
+            produtores locais, além de açaí puro do Pará batido na hora. Desde 2014 em Uberlândia.
           </p>
           <a
             href="https://instagram.com"
@@ -20,7 +20,7 @@ export function SiteFooter() {
             rel="noopener noreferrer"
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
           >
-            <Instagram className="size-4" /> @sorveteriaartesanal
+            <Instagram className="size-4" /> @sorveteriaeacai.udi
           </a>
         </div>
 
@@ -64,7 +64,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Sorveteria Artesanal — CNPJ 12.345.678/0001-90 — São Paulo, SP
+        © {new Date().getFullYear()} Sorveteria e Açaí Uberlândia — CNPJ 12.345.678/0001-90 — Uberlândia, MG
       </div>
     </footer>
   );

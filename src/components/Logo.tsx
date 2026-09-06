@@ -40,10 +40,10 @@ export function LogoLockup({ size = 40 }: { size?: number }) {
       <Logo size={size} />
       <span className="flex flex-col leading-none">
         <span className="font-display text-lg font-bold tracking-tight text-gradient-brand">
-          Sorveteria
+          Sorveteria & Açaí
         </span>
         <span className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-          Artesanal
+          Uberlândia
         </span>
       </span>
     </span>
