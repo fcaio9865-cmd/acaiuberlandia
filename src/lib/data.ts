@@ -12,7 +12,7 @@ export type Produto = {
   descricao: string;
   preco: number;
   precoPromocional?: number;
-  categoria: "sabores" | "casquinhas" | "combos" | "sazonal";
+  categoria: "sabores" | "casquinhas" | "combos" | "acai" | "sazonal";
   tag: string;
   prioridade: Prioridade;
   emoji: string;
@@ -179,6 +179,47 @@ export const PRODUTOS: Produto[] = [
     emoji: "💞",
   },
   {
+    id: "aca-1",
+    nome: "Açaí Tradicional 500ml",
+    descricao: "Polpa pura do Pará batida na hora, com 2 acompanhamentos à escolha.",
+    preco: 24.9,
+    categoria: "acai",
+    tag: "Mais pedido",
+    prioridade: "alta",
+    emoji: "🫐",
+  },
+  {
+    id: "aca-2",
+    nome: "Açaí Power 700ml",
+    descricao: "Açaí com banana, granola artesanal, leite ninho e mel silvestre.",
+    preco: 32.9,
+    precoPromocional: 27.9,
+    categoria: "acai",
+    tag: "Promo",
+    prioridade: "alta",
+    emoji: "💪",
+  },
+  {
+    id: "aca-3",
+    nome: "Açaí Zero Açúcar 400ml",
+    descricao: "Adoçado com tâmaras, servido com morango fresco e castanha-do-pará.",
+    preco: 26.9,
+    categoria: "acai",
+    tag: "Fit",
+    prioridade: "media",
+    emoji: "🥥",
+  },
+  {
+    id: "aca-4",
+    nome: "Barca de Açaí 1L",
+    descricao: "Para dividir: 5 acompanhamentos, 2 caldas e colheres extras.",
+    preco: 49.9,
+    categoria: "acai",
+    tag: "Serve 2 pessoas",
+    prioridade: "media",
+    emoji: "🛶",
+  },
+  {
     id: "saz-1",
     nome: "Gelato de Pêssego da Estação",
     descricao: "Pêssegos maduros de Paranapanema — disponível de setembro a dezembro.",
@@ -240,33 +281,33 @@ export const PROMOCOES: Promocao[] = [
 export const LOJAS: Loja[] = [
   {
     id: "loja-1",
-    nome: "Unidade Vila Madalena",
-    endereco: "Rua Harmonia, 482",
-    bairro: "Vila Madalena",
-    cidade: "São Paulo — SP",
+    nome: "Unidade Centro",
+    endereco: "Av. Afonso Pena, 1.240",
+    bairro: "Centro",
+    cidade: "Uberlândia — MG",
     horario: "Seg a Dom, 12h às 22h",
-    telefone: "(11) 98765-4321",
-    mapa: "https://www.google.com/maps/search/?api=1&query=Rua+Harmonia+482+Vila+Madalena+Sao+Paulo",
+    telefone: "(34) 98765-4321",
+    mapa: "https://www.google.com/maps/search/?api=1&query=Av+Afonso+Pena+1240+Centro+Uberlandia+MG",
   },
   {
     id: "loja-2",
-    nome: "Unidade Pinheiros",
-    endereco: "Av. Pedroso de Morais, 1.230",
-    bairro: "Pinheiros",
-    cidade: "São Paulo — SP",
+    nome: "Unidade Santa Mônica",
+    endereco: "Av. Segismundo Pereira, 3.115",
+    bairro: "Santa Mônica",
+    cidade: "Uberlândia — MG",
     horario: "Ter a Dom, 13h às 23h",
-    telefone: "(11) 98765-4322",
-    mapa: "https://www.google.com/maps/search/?api=1&query=Av+Pedroso+de+Morais+1230+Pinheiros+Sao+Paulo",
+    telefone: "(34) 98765-4322",
+    mapa: "https://www.google.com/maps/search/?api=1&query=Av+Segismundo+Pereira+3115+Santa+Monica+Uberlandia+MG",
   },
   {
     id: "loja-3",
-    nome: "Quiosque Parque Ibirapuera",
-    endereco: "Portão 7 — Av. Pedro Álvares Cabral, s/n",
-    bairro: "Moema",
-    cidade: "São Paulo — SP",
+    nome: "Quiosque Parque do Sabiá",
+    endereco: "Av. Anselmo Alves dos Santos, s/n — Portão 2",
+    bairro: "Tibery",
+    cidade: "Uberlândia — MG",
     horario: "Sáb e Dom, 9h às 19h",
-    telefone: "(11) 98765-4323",
-    mapa: "https://www.google.com/maps/search/?api=1&query=Parque+Ibirapuera+Portao+7+Sao+Paulo",
+    telefone: "(34) 98765-4323",
+    mapa: "https://www.google.com/maps/search/?api=1&query=Parque+do+Sabia+Uberlandia+MG",
   },
 ];
 
@@ -274,28 +315,28 @@ export const DEPOIMENTOS: Depoimento[] = [
   {
     id: "dep-1",
     nome: "Mariana Alcântara",
-    bairro: "Vila Madalena",
+    bairro: "Centro",
     nota: 5,
     texto:
-      "O pistache é o melhor de São Paulo, sem exagero. Pedi o combo família pelo WhatsApp e chegou em 25 minutos.",
+      "O pistache é o melhor de Uberlândia, sem exagero. Pedi o combo família pelo WhatsApp e chegou em 25 minutos.",
     data: "2026-08-14",
   },
   {
     id: "dep-2",
     nome: "Rafael Nunes",
-    bairro: "Pinheiros",
+    bairro: "Santa Mônica",
     nota: 5,
     texto:
-      "Sorbet de limão com manjericão salvou meu domingo. Atendimento super rápido e embalagem impecável.",
+      "O açaí 500ml com granola e leite ninho é generoso e chega bem geladinho. Virou rotina de sexta aqui em casa.",
     data: "2026-07-29",
   },
   {
     id: "dep-3",
     nome: "Juliana Prado",
-    bairro: "Moema",
+    bairro: "Tibery",
     nota: 4,
     texto:
-      "Levei as crianças no quiosque do Ibirapuera. A mini casquinha kids foi sucesso absoluto.",
+      "Levei as crianças no quiosque do Parque do Sabiá. A mini casquinha kids foi sucesso absoluto.",
     data: "2026-09-02",
   },
 ];
