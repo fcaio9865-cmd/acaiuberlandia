@@ -1,24 +1,61 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PRODUTOS } from "@/lib/data";
+import { Hero } from "@/components/Hero";
+import { ProdutosSecao } from "@/components/ProdutosSecao";
+import { PromocoesSecao } from "@/components/PromocoesSecao";
+import { DepoimentosSecao } from "@/components/DepoimentosSecao";
+import { LojasSecao } from "@/components/LojasSecao";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Sorveteria & Açaí Uberlândia — gelato artesanal e açaí do Pará" },
+      {
+        name: "description",
+        content:
+          "Gelato artesanal feito todo dia, casquinhas na chapa, combos família e açaí puro do Pará. Peça pelo WhatsApp em Uberlândia.",
+      },
+      {
+        property: "og:title",
+        content: "Sorveteria & Açaí Uberlândia — gelato artesanal e açaí do Pará",
+      },
+      {
+        property: "og:description",
+        content: "Sabores do dia, promoções da semana e três lojas em Uberlândia.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const sabores = PRODUTOS.filter((p) => p.categoria === "sabores").slice(0, 6);
+  const acai = PRODUTOS.filter((p) => p.categoria === "acai");
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <main>
+      <Hero />
+      <ProdutosSecao
+        id="sabores"
+        chapeu="Feitos hoje"
+        titulo="Sabores do dia"
+        descricao="Pequenos lotes batidos pela manhã, com fruta de produtores do Triângulo Mineiro."
+        produtos={sabores}
       />
-    </div>
+      <ProdutosSecao
+        id="acai"
+        chapeu="Direto do Norte"
+        titulo="Açaí puro do Pará"
+        descricao="Batido na hora, sem xarope adicionado, com os complementos que você escolher."
+        produtos={acai}
+        fundo="muted"
+        delay={850}
+      />
+      <PromocoesSecao />
+      <DepoimentosSecao />
+      <LojasSecao />
+    </main>
   );
 }

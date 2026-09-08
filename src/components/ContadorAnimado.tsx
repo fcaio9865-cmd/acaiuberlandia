@@ -17,7 +17,7 @@ export function ContadorAnimado({
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
+      if (!entry?.isIntersecting) return;
       observer.disconnect();
       const inicio = performance.now();
       const passo = (agora: number) => {
