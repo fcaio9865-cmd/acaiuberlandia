@@ -1,5 +1,6 @@
 import { Plus, Sparkles } from "lucide-react";
 import type { Produto } from "@/lib/data";
+import { IMAGENS_PRODUTOS } from "@/lib/imagens";
 import { formatBRL } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ export function ProdutoCard({
 }) {
   const temPromo = typeof produto.precoPromocional === "number";
   const precoFinal = produto.precoPromocional ?? produto.preco;
+  const foto = IMAGENS_PRODUTOS[produto.id];
 
   return (
     <Card className="group h-full overflow-hidden rounded-3xl border-border bg-card p-0 card-hover">
