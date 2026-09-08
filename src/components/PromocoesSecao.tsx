@@ -1,4 +1,5 @@
 import { PROMOCOES } from "@/lib/data";
+import fundoPromocoes from "@/assets/fundo-promocoes.jpg";
 import { Reveal } from "@/components/Reveal";
 import { PromocaoCard } from "@/components/PromocaoCard";
 import { GradeCarregando, EstadoErro, EstadoVazio } from "@/components/EstadosLista";
@@ -9,7 +10,16 @@ export function PromocoesSecao() {
   const { dados, carregando, erro, recarregar } = useDadosMock(PROMOCOES, 900);
 
   return (
-    <section id="promocoes" className="gradient-soft py-20">
+    <section id="promocoes" className="relative isolate overflow-hidden py-20">
+      <img
+        src={fundoPromocoes}
+        alt="Diversas bolas de gelato e casquinhas sobre fundo rosa"
+        loading="lazy"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 -z-10 size-full object-cover"
+      />
+      <div className="absolute inset-0 -z-10 bg-background/80 backdrop-blur-[1px]" aria-hidden />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">

@@ -1,5 +1,6 @@
 import { Plus, Sparkles } from "lucide-react";
 import type { Produto } from "@/lib/data";
+import { IMAGENS_PRODUTOS } from "@/lib/imagens";
 import { formatBRL } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,32 +32,44 @@ export function ProdutoCard({
 }) {
   const temPromo = typeof produto.precoPromocional === "number";
   const precoFinal = produto.precoPromocional ?? produto.preco;
+  const foto = IMAGENS_PRODUTOS[produto.id];
 
   return (
-    <Card className="group h-full overflow-hidden rounded-3xl border-border bg-card card-hover">
-      <CardContent className="flex h-full flex-col gap-4 p-6">
-        <div className="flex items-start justify-between gap-3">
-          <span aria-hidden className="text-4xl transition-transform group-hover:scale-110">
-            {produto.emoji}
-          </span>
-          <div className="flex flex-wrap justify-end gap-1.5">
-            <Badge className="rounded-full border-none gradient-brand text-primary-foreground">
-              {produto.tag}
-            </Badge>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Badge
-                  variant="outline"
-                  className={`rounded-full ${CORES_PRIORIDADE[produto.prioridade]}`}
-                >
-                  {ROTULO_PRIORIDADE[produto.prioridade]}
-                </Badge>
-              </TooltipTrigger>
-              <TooltipContent>Nível de procura deste item nas lojas</TooltipContent>
-            </Tooltip>
+    <Card className="group h-full overflow-hidden rounded-3xl border-border bg-card p-0 card-hover">
+      <div className="relative aspect-[4/3] overflow-hidden">
+        {foto ? (
+          <img
+            src={foto}
+            alt={`Foto de ${produto.nome}`}
+            loading="lazy"
+            width={768}
+            height={576}
+            className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="flex size-full items-center justify-center gradient-soft text-5xl">
+            <span aria-hidden>{produto.emoji}</span>
           </div>
+        )}
+        <div className="absolute inset-x-3 top-3 flex flex-wrap justify-end gap-1.5">
+          <Badge className="rounded-full border-none gradient-brand text-primary-foreground shadow-neon">
+            {produto.tag}
+          </Badge>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Badge
+                variant="outline"
+                className={`rounded-full bg-card/90 backdrop-blur ${CORES_PRIORIDADE[produto.prioridade]}`}
+              >
+                {ROTULO_PRIORIDADE[produto.prioridade]}
+              </Badge>
+            </TooltipTrigger>
+            <TooltipContent>Nível de procura deste item nas lojas</TooltipContent>
+          </Tooltip>
         </div>
+      </div>
 
+      <CardContent className="flex flex-1 flex-col gap-4 p-6">
         <div>
           <h3 className="text-lg font-bold leading-snug">{produto.nome}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

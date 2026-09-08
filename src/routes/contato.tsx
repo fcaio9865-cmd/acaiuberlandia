@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
 import { whatsappLink } from "@/lib/data";
+import fundoContato from "@/assets/fundo-contato.jpg";
 import { LojasSecao } from "@/components/LojasSecao";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
@@ -64,10 +65,18 @@ function ContatoPage() {
 
   return (
     <main>
-      <section className="gradient-soft py-16">
+      <section className="relative isolate overflow-hidden py-20">
+        <img
+          src={fundoContato}
+          alt="Interior aconchegante da sorveteria com balcão de mármore"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-background/70 backdrop-blur-[2px]" aria-hidden />
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <h1 className="font-display text-4xl font-bold sm:text-5xl">Fale com a gente</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-foreground/80">
             Respondemos no WhatsApp todos os dias, das 11h às 22h. Encomendas para festas
             precisam de 48 horas de antecedência.
           </p>
