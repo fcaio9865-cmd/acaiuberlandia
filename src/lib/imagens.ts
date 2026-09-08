@@ -40,3 +40,14 @@ export const IMAGENS_PRODUTOS: Record<string, string> = {
   "saz-2": jabuticaba,
   "saz-3": milho,
 };
+
+import lojaCentro from "@/assets/lojas/centro.jpg";
+import lojaSantaMonica from "@/assets/lojas/santa-monica.jpg";
+import lojaParque from "@/assets/lojas/parque.jpg";
+
+/** Foto de cada loja, indexada pelo id. */
+export const IMAGENS_LOJAS: Record<string, string> = {
+  "loja-1": lojaCentro,
+  "loja-2": lojaSantaMonica,
+  "loja-3": lojaParque,
+};
