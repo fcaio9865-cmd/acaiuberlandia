@@ -87,20 +87,13 @@
   --sidebar-border: oklch(0.9 0.025 350);
   --sidebar-ring: oklch(0.677 0.16 1.2);
 
-  --gradient-brand: linear-gradient(
-    135deg,
-    oklch(0.677 0.16 1.2),
-    oklch(0.685 0.117 234.3)
-  );
-  --gradient-soft: linear-gradient(
-    160deg,
-    oklch(0.955 0.035 355),
-    oklch(0.95 0.03 230)
-  );
-  --shadow-neon: 0 0 0 1px color-mix(in oklab, var(--primary) 25%, transparent),
+  --gradient-brand: linear-gradient(135deg, oklch(0.677 0.16 1.2), oklch(0.685 0.117 234.3));
+  --gradient-soft: linear-gradient(160deg, oklch(0.955 0.035 355), oklch(0.95 0.03 230));
+  --shadow-neon:
+    0 0 0 1px color-mix(in oklab, var(--primary) 25%, transparent),
     0 12px 40px -12px color-mix(in oklab, var(--primary) 60%, transparent);
-  --shadow-neon-blue: 0 0 0 1px
-      color-mix(in oklab, var(--secondary) 25%, transparent),
+  --shadow-neon-blue:
+    0 0 0 1px color-mix(in oklab, var(--secondary) 25%, transparent),
     0 12px 40px -12px color-mix(in oklab, var(--secondary) 60%, transparent);
   --shadow-card: 0 10px 30px -18px oklch(0.242 0.029 348 / 45%);
 }
@@ -140,11 +133,7 @@
   --sidebar-border: oklch(1 0 0 / 14%);
   --sidebar-ring: oklch(0.74 0.17 1.2);
 
-  --gradient-soft: linear-gradient(
-    160deg,
-    oklch(0.26 0.05 340),
-    oklch(0.24 0.05 250)
-  );
+  --gradient-soft: linear-gradient(160deg, oklch(0.26 0.05 340), oklch(0.24 0.05 250));
   --shadow-card: 0 10px 30px -16px oklch(0 0 0 / 60%);
 }
 
@@ -231,5 +220,188 @@
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 24%, transparent);
+  }
+}
+
+.hero-premium {
+  background:
+    radial-gradient(circle at 50% -10%, oklch(1 0.02 80), transparent 42%), var(--gradient-soft);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--primary) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--primary) 10%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(12px);
+  opacity: 0.65;
+  animation: float-orb 10s ease-in-out infinite;
+}
+.hero-orb-pink {
+  width: 25rem;
+  height: 25rem;
+  right: -8rem;
+  top: 4rem;
+  background: oklch(0.78 0.16 355 / 0.42);
+}
+.hero-orb-blue {
+  width: 20rem;
+  height: 20rem;
+  left: -8rem;
+  bottom: -8rem;
+  background: oklch(0.74 0.13 235 / 0.35);
+  animation-delay: -5s;
+}
+.glass-chip {
+  border: 1px solid color-mix(in oklab, var(--primary) 26%, transparent);
+  background: color-mix(in oklab, var(--card) 76%, transparent);
+  box-shadow: 0 10px 35px -18px color-mix(in oklab, var(--primary) 80%, transparent);
+  backdrop-filter: blur(12px);
+}
+.premium-button {
+  background: var(--gradient-brand);
+  box-shadow: 0 14px 30px -12px color-mix(in oklab, var(--primary) 82%, transparent);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.premium-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 19px 35px -13px color-mix(in oklab, var(--primary) 88%, transparent);
+}
+.hero-visual {
+  position: relative;
+  perspective: 1400px;
+}
+.hero-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 10px solid color-mix(in oklab, var(--card) 82%, transparent);
+  border-radius: 2.8rem;
+  box-shadow:
+    20px 28px 0 color-mix(in oklab, var(--primary) 14%, transparent),
+    0 28px 65px -24px oklch(0.25 0.05 340 / 0.45);
+  transform: rotateY(-6deg) rotateX(2deg);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hero-visual:hover .hero-photo-wrap {
+  transform: rotateY(0) rotateX(0) translateY(-5px);
+}
+.hero-photo {
+  display: block;
+  aspect-ratio: 4 / 4.3;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.hero-visual:hover .hero-photo {
+  transform: scale(1.045);
+}
+.floating-review {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid color-mix(in oklab, var(--card) 80%, transparent);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  box-shadow: 0 18px 38px -20px oklch(0.25 0.04 340 / 0.5);
+  backdrop-filter: blur(14px);
+  animation: float-card 5s ease-in-out infinite;
+}
+.floating-review-top {
+  top: 9%;
+  left: -8%;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem;
+  text-align: left;
+}
+.floating-review-bottom {
+  right: -4%;
+  bottom: 10%;
+  padding: 0.75rem 1rem;
+  animation-delay: -2.5s;
+}
+.hero-sticker {
+  position: absolute;
+  right: -3%;
+  top: -5%;
+  display: grid;
+  size: 5.7rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  box-shadow: 0 12px 22px -12px var(--secondary);
+  transform: rotate(13deg);
+}
+.hero-sticker span {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card-hover {
+  transform-style: preserve-3d;
+  border-color: color-mix(in oklab, var(--border) 72%, transparent);
+}
+.card-hover:hover {
+  transform: translateY(-8px) rotateX(1.5deg) rotateY(-1.5deg);
+  box-shadow:
+    12px 22px 0 color-mix(in oklab, var(--primary) 7%, transparent),
+    0 24px 45px -22px color-mix(in oklab, var(--foreground) 42%, transparent);
+}
+
+@keyframes float-orb {
+  50% {
+    transform: translate3d(0, 22px, 0) scale(1.06);
+  }
+}
+@keyframes float-card {
+  50% {
+    transform: translateY(-9px) rotate(-1deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-photo-wrap {
+    border-width: 7px;
+    border-radius: 2rem;
+    box-shadow:
+      10px 15px 0 color-mix(in oklab, var(--primary) 13%, transparent),
+      0 25px 50px -28px oklch(0.25 0.05 340 / 0.5);
+  }
+  .floating-review-top {
+    left: -2%;
+  }
+  .floating-review-bottom {
+    right: -1%;
+    bottom: 5%;
+  }
+  .hero-sticker {
+    right: -1%;
+    top: -4%;
+    transform: scale(0.78) rotate(13deg);
   }
 }
